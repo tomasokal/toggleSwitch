@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/toggleSwitch/static/css/main.14617319.css",
+    "main.js": "/toggleSwitch/static/js/main.c249788d.js",
+    "index.html": "/toggleSwitch/index.html",
+    "main.14617319.css.map": "/toggleSwitch/static/css/main.14617319.css.map",
+    "main.c249788d.js.map": "/toggleSwitch/static/js/main.c249788d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14617319.css",
+    "static/js/main.c249788d.js"
+  ]
+}
