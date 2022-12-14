@@ -1,6 +1,9 @@
-import { useFrame } from '@react-three/fiber'
-import { useRef } from 'react'
+import { useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
+import { TextureLoader } from 'three'
+
+import waterMaterial from './materials/Water_1_M_Normal.jpg'
+import goldNormal from './materials/Scratched_gold_01_1K_Normal.png'
 
 // Construct plate
 
@@ -20,14 +23,29 @@ import * as THREE from 'three'
         bevelEnabled: true,
         bevelThickness: 0.05,
         bevelSize: 0.05,
-        bevelSegments: 20,
-        curveSegments: 20
+        bevelSegments: 64,
+        curveSegments: 64
     })
     plateGeometry.center()
     plateGeometry.rotateX(Math.PI * -0.5)
 
     // Material
-    const plateMaterial = new THREE.MeshStandardMaterial({ color: '#5A647B', metalness: 1.0, roughness: 0.05 })
+    const textureLoader = new THREE.TextureLoader()
+    const plateMapping = textureLoader.load(waterMaterial)
+    const clearCoatMapping = textureLoader.load(goldNormal)
+
+    const plateMaterial = new THREE.MeshPhysicalMaterial({ 
+        clearcoat: 0.25,
+        metalness: 0.90,
+        roughness: 1.00,
+        color: '#0c0c1c',
+        normalMap: plateMapping,
+        normalScale: new THREE.Vector2( 0.15, 0.15 ),
+        clearcoatNormalMap: clearCoatMapping,
+
+        // y scale is negated to compensate for normal map handedness.
+        clearcoatNormalScale: new THREE.Vector2( 1, 1 )
+    })
 
 export function PlateMain({ position = [ 0, 0, 0 ] })
 {
