@@ -1,13 +1,16 @@
 {
   "files": {
     "main.css": "/toggleSwitch/static/css/main.14617319.css",
-    "main.js": "/toggleSwitch/static/js/main.c249788d.js",
+    "main.js": "/toggleSwitch/static/js/main.279ed9be.js",
+    "static/media/Scratched_gold_01_1K_Normal.png": "/toggleSwitch/static/media/Scratched_gold_01_1K_Normal.d5cdd28b2dce9b797190.png",
+    "static/media/Water_1_M_Normal.jpg": "/toggleSwitch/static/media/Water_1_M_Normal.54caffa4531a15f76205.jpg",
+    "static/media/click.mp3": "/toggleSwitch/static/media/click.270cc99ee46a77a419e9.mp3",
     "index.html": "/toggleSwitch/index.html",
     "main.14617319.css.map": "/toggleSwitch/static/css/main.14617319.css.map",
-    "main.c249788d.js.map": "/toggleSwitch/static/js/main.c249788d.js.map"
+    "main.279ed9be.js.map": "/toggleSwitch/static/js/main.279ed9be.js.map"
   },
   "entrypoints": [
     "static/css/main.14617319.css",
-    "static/js/main.c249788d.js"
+    "static/js/main.279ed9be.js"
   ]
 }
