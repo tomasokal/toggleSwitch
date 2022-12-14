@@ -1,9 +1,11 @@
 import { useFrame } from '@react-three/fiber'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import { MathUtils } from 'three'
 import * as THREE from 'three'
 
 import waterMaterial from './materials/Water_1_M_Normal.jpg'
 import goldNormal from './materials/Scratched_gold_01_1K_Normal.png'
+import audio from './sounds/click.mp3'
 
 const torusGeometry = new THREE.TorusGeometry(0.75, 0.1, 3, 64)
 const cylinderGeometry = new THREE.CylinderGeometry(1, 1, 0.5, 6)
@@ -100,23 +102,29 @@ export function ToggleKnob({ position = [ 0, 0, 0] })
 {
 
     const knobBoi = useRef()
+    const [ clickSound ] = useState(() => new Audio(audio))
+    console.log(clickSound)
+    const [ clicked, setClicked ] = useState(false)
 
     useFrame((state, delta) =>
     {
-        // Get time variable.
-        const t = state.clock.getElapsedTime() 
-
-        // Set up a clamp function.
-        const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
-
-        // Change the tilt of the knob
-        knobBoi.current.rotation.x = clamp( Math.sin(t), -Math.PI / 8, Math.PI / 8)
-
+        knobBoi.current.rotation.x = MathUtils.lerp(knobBoi.current.rotation.x, !clicked ? -Math.PI / 8 : Math.PI / 8, 0.075)
     })
 
     return <>
 
-        <group ref={ knobBoi }>
+        <group 
+            ref={ knobBoi }
+            onClick={ (event) => {
+
+                setClicked(!clicked) 
+
+                clickSound.currentTime = 0
+                clickSound.play()
+
+                event.stopPropagation()
+            }}
+        >
             <mesh
                 geometry={ sphereGeometry }
                 material={ knobMaterial }
