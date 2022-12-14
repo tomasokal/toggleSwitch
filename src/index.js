@@ -1,5 +1,6 @@
 import './style.css'
 
+import { Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 
@@ -10,7 +11,9 @@ const root = createRoot(document.querySelector('#root'))
 root.render(
 
         <Canvas>
-            <Experience />      
+            <Suspense fallback={null}>
+                <Experience /> 
+            </Suspense>  
         </Canvas>
 
 )
