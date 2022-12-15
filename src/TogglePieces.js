@@ -1,5 +1,5 @@
 import { useFrame } from '@react-three/fiber'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { MathUtils } from 'three'
 import * as THREE from 'three'
 
@@ -120,13 +120,17 @@ export function ToggleKnob({ position = [ 0, 0, 0] })
 
     const knobBoi = useRef()
     const [ clickSound ] = useState(() => new Audio(audio))
-    console.log(clickSound)
     const [ clicked, setClicked ] = useState(false)
+    const [hovered, setHovered] = useState(false)
 
     useFrame((state, delta) =>
     {
         knobBoi.current.rotation.x = MathUtils.lerp(knobBoi.current.rotation.x, !clicked ? -Math.PI / 8 : Math.PI / 8, 0.075)
     })
+
+    useEffect(() => {
+        document.body.style.cursor = hovered ? 'pointer' : 'auto'
+    }, [hovered])
 
     return <>
 
@@ -141,6 +145,8 @@ export function ToggleKnob({ position = [ 0, 0, 0] })
 
                 event.stopPropagation()
             }}
+            onPointerOver={ () => setHovered(true) }
+            onPointerOut={ () => setHovered(false) }
         >
             <mesh
                 geometry={ sphereGeometry }
