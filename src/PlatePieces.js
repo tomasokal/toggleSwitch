@@ -1,50 +1,35 @@
-import { useLoader } from '@react-three/fiber'
+import { extend } from '@react-three/fiber'
 import * as THREE from 'three'
-import { TextureLoader } from 'three'
+import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry'
 
-import waterMaterial from './materials/Water_1_M_Normal.jpg'
-import goldNormal from './materials/Scratched_gold_01_1K_Normal.png'
+// Import materials and sounds because I am bad at web dev :)
+
+    // Corresponds to textures from plastic folder
+    import plasticAmbientOcclusion from './materials/plastic/Plastic_Rough_001_ambientOcclusion.jpg'
+    import plasticBase from './materials/plastic/Plastic_Rough_001_basecolor.jpg'
+    import plasticNormal from './materials/plastic/Plastic_Rough_001_normal.jpg'
+    import plasticRoughness from './materials/plastic/Plastic_Rough_001_roughness.jpg'
 
 // Construct plate
 
-    // Shape
-    const shape = new THREE.Shape()
-    const angleStep = Math.PI * 0.5
-    const radius = 1
-
-    shape.absarc(9, 2, radius, angleStep * 0, angleStep * 1)
-    shape.absarc(0, 2, radius, angleStep * 1, angleStep * 2)
-    shape.absarc(0, -2, radius, angleStep * 2, angleStep * 3)
-    shape.absarc(9, -2, radius, angleStep * 3, angleStep * 4)
-
     // Geometry
-    const plateGeometry = new THREE.ExtrudeGeometry(shape, {
-        depth: 1,
-        bevelEnabled: true,
-        bevelThickness: 0.05,
-        bevelSize: 0.05,
-        bevelSegments: 64,
-        curveSegments: 64
-    })
-    plateGeometry.center()
-    plateGeometry.rotateX(Math.PI * -0.5)
+    const plateGeometry = new RoundedBoxGeometry( 10, 1, 5, 32, 0.10 )
 
     // Material
     const textureLoader = new THREE.TextureLoader()
-    const plateMapping = textureLoader.load(waterMaterial)
-    const clearCoatMapping = textureLoader.load(goldNormal)
+    const matAmbientOcclusion = textureLoader.load(plasticAmbientOcclusion)
+    const matBase = textureLoader.load(plasticBase)
+    const matNormal = textureLoader.load(plasticNormal)
+    const matRoughness = textureLoader.load(plasticRoughness)
 
     const plateMaterial = new THREE.MeshPhysicalMaterial({ 
-        clearcoat: 0.25,
-        metalness: 0.90,
-        roughness: 1.00,
-        color: '#0c0c1c',
-        normalMap: plateMapping,
-        normalScale: new THREE.Vector2( 0.15, 0.15 ),
-        clearcoatNormalMap: clearCoatMapping,
 
-        // y scale is negated to compensate for normal map handedness.
-        clearcoatNormalScale: new THREE.Vector2( 1, 1 )
+        aoMap: matAmbientOcclusion,
+        map: matBase,
+        color: '#0c0c1c',
+        normalMap: matNormal,
+        roughnessMap: matRoughness
+
     })
 
 export function PlateMain({ position = [ 0, 0, 0 ] })
