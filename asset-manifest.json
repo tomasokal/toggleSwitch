@@ -1,16 +1,20 @@
 {
   "files": {
     "main.css": "/toggleSwitch/static/css/main.14617319.css",
-    "main.js": "/toggleSwitch/static/js/main.279ed9be.js",
-    "static/media/Scratched_gold_01_1K_Normal.png": "/toggleSwitch/static/media/Scratched_gold_01_1K_Normal.d5cdd28b2dce9b797190.png",
-    "static/media/Water_1_M_Normal.jpg": "/toggleSwitch/static/media/Water_1_M_Normal.54caffa4531a15f76205.jpg",
+    "main.js": "/toggleSwitch/static/js/main.edd2e829.js",
+    "static/media/Metal_006_ambientOcclusion.jpg": "/toggleSwitch/static/media/Metal_006_ambientOcclusion.45d1a339a8acb2ead31c.jpg",
+    "static/media/Plastic_Rough_001_normal.jpg": "/toggleSwitch/static/media/Plastic_Rough_001_normal.803d05697ac2a9a9f348.jpg",
+    "static/media/Metal_scratched_009_roughness.jpg": "/toggleSwitch/static/media/Metal_scratched_009_roughness.1d593d09ed158233575a.jpg",
+    "static/media/Metal_006_roughness.jpg": "/toggleSwitch/static/media/Metal_006_roughness.d0f2f623d05d6aaa09d9.jpg",
+    "static/media/Plastic_Rough_001_roughness.jpg": "/toggleSwitch/static/media/Plastic_Rough_001_roughness.1589729859d9a5fc77c9.jpg",
+    "static/media/Plastic_Rough_001_basecolor.jpg": "/toggleSwitch/static/media/Plastic_Rough_001_basecolor.ae0de32ee0a47ca2ebfb.jpg",
     "static/media/click.mp3": "/toggleSwitch/static/media/click.270cc99ee46a77a419e9.mp3",
     "index.html": "/toggleSwitch/index.html",
     "main.14617319.css.map": "/toggleSwitch/static/css/main.14617319.css.map",
-    "main.279ed9be.js.map": "/toggleSwitch/static/js/main.279ed9be.js.map"
+    "main.edd2e829.js.map": "/toggleSwitch/static/js/main.edd2e829.js.map"
   },
   "entrypoints": [
     "static/css/main.14617319.css",
-    "static/js/main.279ed9be.js"
+    "static/js/main.edd2e829.js"
   ]
 }
