@@ -3,52 +3,69 @@ import { useRef, useState } from 'react'
 import { MathUtils } from 'three'
 import * as THREE from 'three'
 
-import waterMaterial from './materials/Water_1_M_Normal.jpg'
-import goldNormal from './materials/Scratched_gold_01_1K_Normal.png'
-import audio from './sounds/click.mp3'
+// Import materials and sounds because I am bad at web dev :)
 
+    // Corresponds to textures from metal folder
+    import metalOneAmbientOcclusion from './materials/metal/Metal_006_ambientOcclusion.jpg'
+    import metalOneRoughness from './materials/metal/Metal_006_roughness.jpg'
+
+    // Corresponds to textures from metal scratch folder
+    import metalTwoRoughness from './materials/metal-scratch/Metal_scratched_009_roughness.jpg'
+
+    // Corresponds to audio
+    import audio from './sounds/click.mp3'
+
+// Generate geometries one time so we can reuse them
 const torusGeometry = new THREE.TorusGeometry(0.75, 0.1, 3, 64)
 const cylinderGeometry = new THREE.CylinderGeometry(1, 1, 0.5, 6)
 const sphereGeometry = new THREE.SphereGeometry(0.75, 32, 16, Math.PI * 2, Math.PI * 2, Math.PI * 2, Math.PI / 1.8)
 const capsuleGeometry = new THREE.CapsuleGeometry(0.25, 2, 32, 64)
 const cylinderHollowGeometry = new THREE.CylinderGeometry(0.695, 0.695, 0.4, 64, 1, true)
 
-const textureLoader = new THREE.TextureLoader()
-const materialMapping = textureLoader.load(waterMaterial)
-const normalMapping = textureLoader.load(goldNormal)
+// Textures :(
 
-const washerMaterial = new THREE.MeshPhysicalMaterial({ 
-    clearcoat: 0.75,
-    metalness: 0.99,
-    roughness: 0.10,
-    color: '#726b64',
-    normalMap: materialMapping,
-    normalScale: new THREE.Vector2( 0.15, 0.15 ),
-    clearcoatNormalMap: normalMapping
-})
+    // Load textureloader lol
+    const textureLoader = new THREE.TextureLoader()
 
-const screwMaterial = new THREE.MeshPhysicalMaterial({ 
-    clearcoat: 0.75,
-    metalness: 0.99,
-    roughness: 0.10,
-    color: '#705834',
-    normalMap: materialMapping,
-    normalScale: new THREE.Vector2( 0.15, 0.15 ),
-    clearcoatNormalMap: normalMapping
-})
+    // Metals
+    const mapMetalOneAmbientOcclusion = textureLoader.load(metalOneAmbientOcclusion)
+    const mapMetalOneRoughness = textureLoader.load(metalOneRoughness)
+    const mapMetalTwoRoughness = textureLoader.load(metalTwoRoughness)
 
-const screwInsideMaterial = new THREE.MeshPhysicalMaterial({ 
-    clearcoat: 0.75,
-    metalness: 0.99,
-    roughness: 0.10,
-    color: '#705834',
-    normalMap: materialMapping,
-    normalScale: new THREE.Vector2( 0.15, 0.15 ),
-    clearcoatNormalMap: normalMapping,
-    side: THREE.BackSide
-})
+    // Map these to materials
 
-const knobMaterial = new THREE.MeshStandardMaterial({ color: '#a1a28c', metalness: 1.0, roughness: 0.25 })
+        // Washer
+        const washerMaterial = new THREE.MeshPhysicalMaterial({ 
+            aoMap: mapMetalOneAmbientOcclusion,
+            metalness: 0.99,
+            color: '#ae8951',
+            roughnessMap: mapMetalTwoRoughness
+        })
+
+        // Screws outside
+        const screwMaterial = new THREE.MeshPhysicalMaterial({ 
+            aoMap: mapMetalOneAmbientOcclusion,
+            metalness: 0.99,
+            color: '#705834',
+            roughnessMap: mapMetalTwoRoughness
+        })
+
+        // Screws inside
+        const screwInsideMaterial = new THREE.MeshPhysicalMaterial({ 
+            aoMap: mapMetalOneAmbientOcclusion,
+            metalness: 0.99,
+            color: '#705834',
+            roughnessMap: mapMetalTwoRoughness,
+            side: THREE.BackSide
+        })
+
+        // Knob
+        const knobMaterial = new THREE.MeshStandardMaterial({ 
+            aoMap: mapMetalOneAmbientOcclusion,
+            metalness: 0.99,
+            color: '#a1a28c',
+            roughnessMap: mapMetalOneRoughness
+        })
 
 export function ToggleScrew({ position = [ 0, 0, 0 ] })
 {
