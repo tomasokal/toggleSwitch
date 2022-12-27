@@ -1,12 +1,15 @@
 import { OrbitControls, Stage } from '@react-three/drei'
-import Plate from './Plate'
+import { Perf } from 'r3f-perf'
 
+import Plate from './Plate'
 import Toggle from './Toggle'
 
 export default function Experience()
 {
 
     return <>   
+
+        <Perf />
 
         <OrbitControls />
 
