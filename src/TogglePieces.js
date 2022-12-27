@@ -1,6 +1,3 @@
-import { useFrame } from '@react-three/fiber'
-import { useEffect, useRef, useState } from 'react'
-import { MathUtils } from 'three'
 import * as THREE from 'three'
 
 // Import materials and sounds because I am bad at web dev :)
@@ -11,9 +8,6 @@ import * as THREE from 'three'
 
     // Corresponds to textures from metal scratch folder
     import metalTwoRoughness from './materials/metal-scratch/Metal_scratched_009_roughness.jpg'
-
-    // Corresponds to audio
-    import audio from './sounds/click.mp3'
 
 // Generate geometries one time so we can reuse them
 const torusGeometry = new THREE.TorusGeometry(0.75, 0.1, 3, 64)
@@ -118,36 +112,9 @@ export function ToggleWasher({ position = [ 0, 0, 0] })
 export function ToggleKnob({ position = [ 0, 0, 0] })
 {
 
-    const knobBoi = useRef()
-    const [ clickSound ] = useState(() => new Audio(audio))
-    const [ clicked, setClicked ] = useState(false)
-    const [hovered, setHovered] = useState(false)
-
-    useFrame((state, delta) =>
-    {
-        knobBoi.current.rotation.x = MathUtils.lerp(knobBoi.current.rotation.x, !clicked ? -Math.PI / 8 : Math.PI / 8, 0.075)
-    })
-
-    useEffect(() => {
-        document.body.style.cursor = hovered ? 'pointer' : 'auto'
-    }, [hovered])
-
     return <>
 
-        <group 
-            ref={ knobBoi }
-            onClick={ (event) => {
-
-                setClicked(!clicked) 
-
-                clickSound.currentTime = 0
-                clickSound.play()
-
-                event.stopPropagation()
-            }}
-            onPointerOver={ () => setHovered(true) }
-            onPointerOut={ () => setHovered(false) }
-        >
+        <group>
             <mesh
                 geometry={ sphereGeometry }
                 material={ knobMaterial }
