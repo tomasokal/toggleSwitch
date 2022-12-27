@@ -6,7 +6,7 @@ import { MathUtils } from 'three'
 import { ToggleKnob, ToggleScrew, ToggleScrewInside, ToggleWasher } from './TogglePieces'
 
 // Corresponds to audio
-import audio from './sounds/click.mp3'
+import audio from '../../sounds/click.mp3'
 
 export default function Toggle({ position = [ 0, 0, 0 ] })
 {

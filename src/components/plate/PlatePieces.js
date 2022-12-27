@@ -5,10 +5,10 @@ import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeom
 // Import materials and sounds because I am bad at web dev :)
 
     // Corresponds to textures from plastic folder
-    import plasticAmbientOcclusion from './materials/plastic/Plastic_Rough_001_ambientOcclusion.jpg'
-    import plasticBase from './materials/plastic/Plastic_Rough_001_basecolor.jpg'
-    import plasticNormal from './materials/plastic/Plastic_Rough_001_normal.jpg'
-    import plasticRoughness from './materials/plastic/Plastic_Rough_001_roughness.jpg'
+    import plasticAmbientOcclusion from '../../materials/plastic/Plastic_Rough_001_ambientOcclusion.jpg'
+    import plasticBase from '../../materials/plastic/Plastic_Rough_001_basecolor.jpg'
+    import plasticNormal from '../../materials/plastic/Plastic_Rough_001_normal.jpg'
+    import plasticRoughness from '../../materials/plastic/Plastic_Rough_001_roughness.jpg'
 
 // Construct plate
 

@@ -3,11 +3,11 @@ import * as THREE from 'three'
 // Import materials and sounds because I am bad at web dev :)
 
     // Corresponds to textures from metal folder
-    import metalOneAmbientOcclusion from './materials/metal/Metal_006_ambientOcclusion.jpg'
-    import metalOneRoughness from './materials/metal/Metal_006_roughness.jpg'
+    import metalOneAmbientOcclusion from '../../materials/metal/Metal_006_ambientOcclusion.jpg'
+    import metalOneRoughness from '../../materials/metal/Metal_006_roughness.jpg'
 
     // Corresponds to textures from metal scratch folder
-    import metalTwoRoughness from './materials/metal-scratch/Metal_scratched_009_roughness.jpg'
+    import metalTwoRoughness from '../../materials/metal-scratch/Metal_scratched_009_roughness.jpg'
 
 // Generate geometries one time so we can reuse them
 const torusGeometry = new THREE.TorusGeometry(0.75, 0.1, 3, 64)
