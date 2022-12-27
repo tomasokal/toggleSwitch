@@ -11,15 +11,15 @@ import audio from './sounds/click.mp3'
 export default function Toggle({ position = [ 0, 0, 0 ] })
 {
 
-    const knobBoi = useRef()
+    const ref = useRef()
     const [ clickSound ] = useState(() => new Audio(audio))
     const [ clicked, setClicked ] = useState(false)
     const [ hovered, setHovered ] = useState(false)
 
     useFrame((state, delta) =>
     {
-        knobBoi.current.children[6].rotation.x = MathUtils.lerp(
-            knobBoi.current.children[6].rotation.x, 
+        ref.current.children[6].rotation.x = MathUtils.lerp(
+            ref.current.children[6].rotation.x, 
             !clicked ? -Math.PI / 8 : Math.PI / 8, 
             0.075
         )
@@ -32,7 +32,7 @@ export default function Toggle({ position = [ 0, 0, 0 ] })
     return <>   
 
         <group 
-            ref={knobBoi}
+            ref={ref}
             position={ position }
             onPointerOver={ () => setHovered(true) }
             onPointerOut={ () => setHovered(false) }
