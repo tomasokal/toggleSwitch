@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/toggleSwitch/static/css/main.14617319.css",
-    "main.js": "/toggleSwitch/static/js/main.7941d6b2.js",
+    "main.js": "/toggleSwitch/static/js/main.d7394cc1.js",
     "static/media/Metal_006_ambientOcclusion.jpg": "/toggleSwitch/static/media/Metal_006_ambientOcclusion.45d1a339a8acb2ead31c.jpg",
     "static/media/Plastic_Rough_001_normal.jpg": "/toggleSwitch/static/media/Plastic_Rough_001_normal.803d05697ac2a9a9f348.jpg",
     "static/media/Metal_scratched_009_roughness.jpg": "/toggleSwitch/static/media/Metal_scratched_009_roughness.1d593d09ed158233575a.jpg",
@@ -11,10 +11,10 @@
     "static/media/click.mp3": "/toggleSwitch/static/media/click.270cc99ee46a77a419e9.mp3",
     "index.html": "/toggleSwitch/index.html",
     "main.14617319.css.map": "/toggleSwitch/static/css/main.14617319.css.map",
-    "main.7941d6b2.js.map": "/toggleSwitch/static/js/main.7941d6b2.js.map"
+    "main.d7394cc1.js.map": "/toggleSwitch/static/js/main.d7394cc1.js.map"
   },
   "entrypoints": [
     "static/css/main.14617319.css",
-    "static/js/main.7941d6b2.js"
+    "static/js/main.d7394cc1.js"
   ]
 }
