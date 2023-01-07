@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/toggleSwitch/static/css/main.a6eeb22f.css",
+    "main.css": "/toggleSwitch/static/css/main.9870c3eb.css",
     "main.js": "/toggleSwitch/static/js/main.54c6f35b.js",
     "static/media/Metal_006_ambientOcclusion.jpg": "/toggleSwitch/static/media/Metal_006_ambientOcclusion.45d1a339a8acb2ead31c.jpg",
     "static/media/Plastic_Rough_001_normal.jpg": "/toggleSwitch/static/media/Plastic_Rough_001_normal.803d05697ac2a9a9f348.jpg",
@@ -10,11 +10,11 @@
     "static/media/Plastic_Rough_001_basecolor.jpg": "/toggleSwitch/static/media/Plastic_Rough_001_basecolor.ae0de32ee0a47ca2ebfb.jpg",
     "static/media/click.mp3": "/toggleSwitch/static/media/click.270cc99ee46a77a419e9.mp3",
     "index.html": "/toggleSwitch/index.html",
-    "main.a6eeb22f.css.map": "/toggleSwitch/static/css/main.a6eeb22f.css.map",
+    "main.9870c3eb.css.map": "/toggleSwitch/static/css/main.9870c3eb.css.map",
     "main.54c6f35b.js.map": "/toggleSwitch/static/js/main.54c6f35b.js.map"
   },
   "entrypoints": [
-    "static/css/main.a6eeb22f.css",
+    "static/css/main.9870c3eb.css",
     "static/js/main.54c6f35b.js"
   ]
 }
