@@ -67,6 +67,7 @@ export function ToggleScrew({ position = [ 0, 0, 0 ] })
     return <>   
 
         <mesh 
+            castShadow
             geometry={ torusGeometry }
             material={ screwMaterial }
             rotation-x={ Math.PI / 2 } 
@@ -99,6 +100,7 @@ export function ToggleWasher({ position = [ 0, 0, 0] })
     return <>
     
         <mesh
+            castShadow
             geometry={ cylinderGeometry }
             material={ washerMaterial }
             rotation-y={ Math.PI / 2 } 
@@ -116,11 +118,13 @@ export function ToggleKnob({ position = [ 0, 0, 0] })
 
         <group>
             <mesh
+                castShadow
                 geometry={ sphereGeometry }
                 material={ knobMaterial }
                 position={ position }
             />
             <mesh
+                castShadow
                 geometry={ capsuleGeometry }
                 material={ knobMaterial }
                 position={ [ 0, 1, 0 ] }

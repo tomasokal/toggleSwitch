@@ -1,36 +1,50 @@
-import { OrbitControls, Stage } from '@react-three/drei'
-import { Bloom, EffectComposer } from '@react-three/postprocessing'
-import { Perf } from 'r3f-perf'
-import PlateLight from './components/light/Light'
+// external packages
+import { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import { Bloom, ColorAverage, EffectComposer } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+import * as THREE from 'three'
 
+// internal components
 import Plate from './components/plate/Plate'
 import Toggle from './components/toggle/Toggle'
+import useIcon from './stores/useIcon'
+import Lights from './Lights'
 
 export default function Experience()
 {
 
-    return <>   
+  const ref = useRef()
 
-        <EffectComposer>
-            <Bloom mipmapBlur />
-        </EffectComposer>
+  const clicked = useIcon((state) => state.iconRotate)
 
-        <Perf />
+  useFrame((state, delta) => {
+    ref.current.rotation.y = THREE.MathUtils.lerp(
+      ref.current.rotation.y, 
+      clicked ? ref.current.rotation.y += delta / 10 : ref.current.rotation.y += 0, 
+      10
+    )
+  })
 
-        <OrbitControls />
+  return <>   
 
-        <Stage>
+    <EffectComposer>
+      <Bloom mipmapBlur />
+      <ColorAverage blendFunction={BlendFunction.MULTIPLY} />
+    </EffectComposer>
 
-            <Toggle position={ [ 0, 0, 0 ] }/>
-            <Toggle position={ [ 3, 0, 0 ] }/>
-            <Toggle position={ [ 6, 0, 0 ] }/>
-            <PlateLight position={ [ 0, 0, 2.5 ] }/>
-            <PlateLight position={ [ 3, 0, 2.5 ] }/>
-            <PlateLight position={ [ 6, 0, 2.5 ] }/>
-            <Plate />
+    <OrbitControls />
 
-        </Stage>
-            
-    </>
+    <Lights />
+
+    <group ref={ref}>
+      <Toggle castShadow receiveShadow position={ [ -3, 0, -1 ] } />
+      <Toggle castShadow receiveShadow position={ [ 0, 0, -1 ] } />
+      <Toggle castShadow receiveShadow position={ [ 3, 0, -1 ] } />
+      <Plate receiveShadow position={ [ 0, -0.6, 0 ] } />
+    </group>
+          
+  </>
 
 }

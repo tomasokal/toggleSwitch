@@ -12,7 +12,6 @@ import * as THREE from 'three'
 // Generate geometries one time so we can reuse them
 const cylinderGeometry = new THREE.CylinderGeometry(0.75, 0.75, 0.25, 32)
 const capsuleGeometry = new THREE.SphereGeometry(0.70, 32, 32, 0, (Math.PI * 2), 0, (Math.PI * 0.5))
-const filamentGeometry = new THREE.TorusKnotGeometry(0.20, 0.015, 64, 3, 4, 3)
 
 // Textures :(
 
@@ -43,14 +42,6 @@ const filamentGeometry = new THREE.TorusKnotGeometry(0.20, 0.015, 64, 3, 4, 3)
             attenuationColor: 'orange',
         })
 
-        // Filament
-        const filamentMaterial = new THREE.MeshStandardMaterial({
-            color: 'black',
-            emissive: 'orange',
-            emissiveIntensity: 0,
-            toneMapped: false,
-        })
-
 export function PlateLightBase({ position = [ 0, 0, 0 ] })
 {
 
@@ -76,17 +67,6 @@ export function PlateLightBulb({ position = [ 0, 0, 0 ] })
             material={ bulbMaterial }
             position={ position }
         />
-
-    </>
-
-}
-
-export function PlateLightFilament({ position = [ 0, 0, 0 ] })
-{
-
-    return <>   
-
-        <mesh geometry={ filamentGeometry } position={ position } material={ filamentMaterial } />
 
     </>
 

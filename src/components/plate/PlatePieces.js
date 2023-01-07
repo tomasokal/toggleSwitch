@@ -38,6 +38,7 @@ export function PlateMain({ position = [ 0, 0, 0 ] })
     return <>   
 
         <mesh 
+            receiveShadow
             geometry={ plateGeometry }
             material={ plateMaterial }
             position={ position }

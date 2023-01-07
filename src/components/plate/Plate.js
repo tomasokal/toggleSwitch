@@ -1,13 +1,13 @@
 
 import { PlateMain } from './PlatePieces'
 
-export default function Plate({ position = [ 0, 0, 0 ] })
+export default function Plate({ position })
 {
 
     return <>   
 
         <group>
-            <PlateMain position={ [ 3, -0.6, 1 ] }/>
+            <PlateMain position={position}/>
         </group>
 
     </>
