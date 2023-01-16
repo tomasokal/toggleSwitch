@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/toggleSwitch/static/css/main.9870c3eb.css",
-    "main.js": "/toggleSwitch/static/js/main.54c6f35b.js",
+    "main.js": "/toggleSwitch/static/js/main.d8212eb0.js",
     "static/media/Metal_006_ambientOcclusion.jpg": "/toggleSwitch/static/media/Metal_006_ambientOcclusion.45d1a339a8acb2ead31c.jpg",
     "static/media/Plastic_Rough_001_normal.jpg": "/toggleSwitch/static/media/Plastic_Rough_001_normal.803d05697ac2a9a9f348.jpg",
     "static/media/Metal_scratched_009_roughness.jpg": "/toggleSwitch/static/media/Metal_scratched_009_roughness.1d593d09ed158233575a.jpg",
@@ -11,10 +11,10 @@
     "static/media/click.mp3": "/toggleSwitch/static/media/click.270cc99ee46a77a419e9.mp3",
     "index.html": "/toggleSwitch/index.html",
     "main.9870c3eb.css.map": "/toggleSwitch/static/css/main.9870c3eb.css.map",
-    "main.54c6f35b.js.map": "/toggleSwitch/static/js/main.54c6f35b.js.map"
+    "main.d8212eb0.js.map": "/toggleSwitch/static/js/main.d8212eb0.js.map"
   },
   "entrypoints": [
     "static/css/main.9870c3eb.css",
-    "static/js/main.54c6f35b.js"
+    "static/js/main.d8212eb0.js"
   ]
 }
