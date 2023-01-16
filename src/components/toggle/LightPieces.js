@@ -48,6 +48,7 @@ export function PlateLightBase({ position = [ 0, 0, 0 ] })
     return <>   
 
         <mesh 
+            castShadow
             geometry={ cylinderGeometry }
             material={ baseMaterial }
             position={ position }
@@ -63,6 +64,7 @@ export function PlateLightBulb({ position = [ 0, 0, 0 ] })
     return <>   
 
         <mesh 
+            castShadow
             geometry={ capsuleGeometry }
             material={ bulbMaterial }
             position={ position }
